@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doom Scroll</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .title-screen {
+            text-align: center;
+        }
+        .title-screen h1 {
+            font-size: 3em;
+        }
+        .game-container {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-screen">
+        <h1>Doom Scroll</h1>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    <div class="game-container">
+        <h2>Game Started!</h2>
+        <p id="monster"></p>
+        <p id="item"></p>
+    </div>
+
+    <script>
+        function startGame() {
+            document.querySelector('.title-screen').style.display = 'none';
+            document.querySelector('.game-container').style.display = 'block';
+            insertMonsterAndItem();
+        }
+
+        function insertMonsterAndItem() {
+            const monsters = ['Goblin', 'Troll', 'Dragon', 'Zombie', 'Vampire'];
+            const items = ['Sword', 'Shield', 'Potion', 'Bow', 'Axe'];
+
+            const randomMonster = monsters[Math.floor(Math.random() * monsters.length)];
+            const randomItem = items[Math.floor(Math.random() * items.length)];
+
+            document.getElementById('monster').innerText = `Monster: ${randomMonster}`;
+            document.getElementById('item').innerText = `Item: ${randomItem}`;
+        }
+    </script>
+</body>
+</html>
